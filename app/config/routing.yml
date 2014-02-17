@@ -1,18 +1,18 @@
-trend_one_trend_voter:
-    resource: "@TrendOneTrendVoterBundle/Controller/Frontend/"
+_imagine:
+    resource: .
+    type:     imagine
+    
+toa_layout:
+    resource: "@ToaLayoutBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /admin
 
 trend_one_trend_voter_admin:
     resource: "@TrendOneTrendVoterBundle/Controller/Admin/"
     type:     annotation
     prefix:   /admin
 
-toa_layout:
-    resource: "@ToaLayoutBundle/Controller/"
+trend_one_trend_voter_frontend:
+    resource: "@TrendOneTrendVoterBundle/Controller/Frontend/"
     type:     annotation
-    prefix:   /admin
-
-_imagine:
-    resource: .
-    type:     imagine
+    prefix:   /
