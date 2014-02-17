@@ -1,0 +1,12 @@
+liip_imagine:
+    data_root: /
+    filter_sets:
+        campaignitem_list:
+            filters:
+                thumbnail:
+                  size: [32, 32]
+                  mode: inset
+        campaignitem_edit:
+            filters:
+                relative_resize:
+                  widen: 760

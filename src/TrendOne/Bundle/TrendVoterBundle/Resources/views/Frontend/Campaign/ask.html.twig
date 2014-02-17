@@ -1,0 +1,56 @@
+{% extends 'TrendOneTrendVoterBundle:Frontend:layout.html.twig' %}
+
+{% form_theme form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content -%}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="text-center">{{ campaign.title }} <small>{{ campaign.items.indexOf(campaignItem)+1 }}/{{ campaign.items.count }}</small></h1>
+        </div>
+
+        <div class="panel-body">
+    <div class="row">
+        <div class="col-sm-5">
+            <img class="img-thumbnail" src="{{ campaignItem.imageResource is not null ? campaignItem.imageResource|imagine_filter('campaignitem_edit') }}" />
+        </div>
+        <div class="col-sm-7">
+            <h3>{{ campaignItem.title }}</h3>
+            <p>{{ campaignItem.description|nl2br }}
+
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                <div class="form-group{{ form.answerX.vars.errors ? ' has-error' }}">
+                    {{ form_label(form.answerX, campaign.questionX, {'label_attr': {'class': 'col-sm-8'}}) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.answerX, {'attr': entity.id ? {'disabled': 'disabled'} : {}}) }}
+                        {{ form_errors(form.answerX) }}
+                    </div>
+                </div>
+                <div class="form-group{{ form.answerY.vars.errors ? ' has-error' }}">
+                    {{ form_label(form.answerY, campaign.questionY, {'label_attr': {'class': 'col-sm-8'}}) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.answerY, {'attr': entity.id ? {'disabled': 'disabled'} : {}}) }}
+                        {{ form_errors(form.answerY) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+{#                         {{ form_widget(form.submit, {'label': (entity.id ? 'Go to ' : 'Vote') ~' {{ step }} of {{ count }}'|trans({'{{ step }}': campaign.items.indexOf(campaignItem)+1, '{{ count }}': campaign.items|length}), 'attr': {'class': 'btn-block btn-primary'}}) }}#}
+                        {{ form_widget(form.submit, {'attr': {'class': 'btn-block btn-primary'}}) }}
+                    </div>
+                </div>
+                {{ form_rest(form) }}
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+    {% if entity.id %}
+        <p class="lead text-center">
+            You already voted for this item.
+            <br />
+            <a class="btn btn-primary btn-lg" href="{{ path('trendone_trendvoter_frontend_campaign_restart', {'campaign': campaign.slug}) }}">You can click here to restart the voting</a>
+        </p>
+    {% endif %}
+{% endblock %}

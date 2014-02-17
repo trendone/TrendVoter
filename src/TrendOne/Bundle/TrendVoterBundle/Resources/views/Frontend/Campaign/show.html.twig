@@ -1,0 +1,10 @@
+{% extends 'TrendOneTrendVoterBundle:Frontend:layout.html.twig' %}
+
+{% block content -%}
+    <div class="jumbotron text-center">
+        <h1>{{ campaign.title }}</h1>
+        <p><small>{{ campaign.description|nl2br }}</small></p>
+
+        <p><a href="{{ path('trendone_trendvoter_frontend_campaign_ask', {'campaign': campaign.slug, 'step': 0}) }}" class="btn btn-primary btn-lg">Start here</a></p>
+    </div>
+{% endblock %}

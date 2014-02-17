@@ -1,0 +1,88 @@
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% form_theme delete_form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content -%}
+    <h1>Campaign</h1>
+
+    <div class="row">
+        <div class="col-sm-9 col-md-10">
+            <table class="table table-condensed">
+                <tbody>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ entity.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ entity.description|nl2br }}</td>
+                    </tr>
+                    <tr>
+                        <th>Questionx</th>
+                        <td>{{ entity.questionX }}</td>
+                    </tr>
+                    <tr>
+                        <th>Questiony</th>
+                        <td>{{ entity.questionY }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-3 col-md-2">
+            <div class="row">
+{#                 <div class="col-xs-3 col-sm-12">#}
+{#                     <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_edit', { 'id': entity.id }) }}">Edit</a>#}
+{#                     <br /><br />#}
+{#                 </div>#}
+{#                 <div class="col-xs-3 col-sm-12">#}
+{#                     {{ form(delete_form) }}#}
+{#                     <br />#}
+{#                 </div>#}
+                <div class="col-xs-6 col-sm-12">
+                    <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_index') }}">Back to the list</a>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>CampaignItem answers</h1>
+
+    {% for item in entity.items %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">{{ item.title }}</div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        {% for a in 0..6 %}
+                            <th>{{ a }}</th>
+                        {% endfor %}
+                        <th>ø</th>
+                        <th>&ratio;|&ratio;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Answer X</th>
+                        {% for a in 0..6 %}
+                            <td>{{ item.countAnswersByX(a) }}</td>
+                        {% endfor %}
+                        <td>{{ item.averageAnswersX()|number_format(1) }}</td>
+                        {% set mediansX = item.medianAnswersX() %}
+                        <td>{{ mediansX.lower|default('-') }}|{{ mediansX.upper|default('-') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Answer Y</th>
+                        {% for a in 0..6 %}
+                            <td>{{ item.countAnswersByY(a) }}</td>
+                        {% endfor %}
+                        <td>{{ item.averageAnswersY()|number_format(1) }}</td>
+                        {% set mediansY = item.medianAnswersY() %}
+                        <td>{{ mediansY.lower|default('-') }}|{{ mediansY.upper|default('-') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+{% endblock %}

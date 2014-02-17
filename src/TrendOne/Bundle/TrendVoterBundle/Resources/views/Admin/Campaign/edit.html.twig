@@ -1,0 +1,61 @@
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% form_theme edit_form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+{% form_theme delete_form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content -%}
+    <div class="row">
+        <div class="col-sm-6">{{ block('campaign') }}</div>
+        <div class="col-sm-6">{{ block('campaignitems') }}</div>
+    </div>
+
+{% endblock %}
+
+{% block campaign %}
+    <h1>Campaign edit</h1>
+
+    {{ form(edit_form) }}
+
+    <br />
+
+    {{ form(delete_form) }}
+
+    <br />
+
+    <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_index') }}">Back to the list</a>
+{% endblock %}
+
+{% block campaignitems %}
+    <h1>CampaignItem list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in entity.items %}
+            <tr>
+                <td>
+                    <img class="img-thumbnail" src="{{ item.imageResource|imagine_filter('campaignitem_list') }}" />
+                </td>
+                <td>{{ item.title }}</td>
+                <td>
+                    <div class="btn-group btn-group-xs">
+{#                         <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_show', { 'id': item.id, 'campaign': entity.id }) }}">show</a>#}
+                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_edit', { 'id': item.id, 'campaign': entity.id }) }}">edit</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_new', {'campaign': entity.id}) }}">
+        Create a new campaign item
+    </a>
+
+{% endblock %}

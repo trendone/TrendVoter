@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping 
+    xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+    xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+    <entity 
+        repository-class="TrendOne\Bundle\TrendVoterBundle\Entity\Repository\CampaignItemRepository" 
+        name="TrendOne\Bundle\TrendVoterBundle\Entity\CampaignItem">
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        
+        <field name="title" type="string" length="255" nullable="false" />
+        
+        <field name="image" type="string" length="255" />
+        
+        <field name="description" type="text" />
+        
+        <many-to-one 
+            field="campaign" 
+            target-entity="TrendOne\Bundle\TrendVoterBundle\Entity\Campaign"
+            inversed-by="items">
+                <join-column on-delete="CASCADE" nullable="false" />
+        </many-to-one>
+        
+        <one-to-many 
+            field="answers" 
+            target-entity="TrendOne\Bundle\TrendVoterBundle\Entity\CampaignItemAnswer"
+            mapped-by="campaignItem">
+            <cascade>
+                <cascade-persist />
+                <cascade-remove />
+            </cascade>
+            <order-by>
+                <order-by-field name="id" direction="ASC" />
+            </order-by>
+        </one-to-many>
+
+        <field name="createdAt" type="datetime">
+            <gedmo:timestampable on="create" />
+        </field>
+
+        <field name="updatedAt" type="datetime">
+            <gedmo:timestampable on="update" />
+        </field>
+        
+        <field name="deletedAt" type="datetime" nullable="true" />
+
+        <gedmo:soft-deleteable field-name="deletedAt" time-aware="false" />
+  </entity>
+</doctrine-mapping>

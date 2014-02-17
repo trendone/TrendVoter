@@ -1,0 +1,26 @@
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% form_theme edit_form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+{% form_theme delete_form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content -%}
+    <h1>CampaignItem edit</h1>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="img-thumbnail" src="{{ entity.imageResource is not null ? entity.imageResource|imagine_filter('campaignitem_edit') }}" />
+        </div>
+        <div class="col-sm-6">
+            {{ form(edit_form) }}
+
+            <br />
+
+            {{ form(delete_form) }}
+
+            <br />
+
+            <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_index', {'campaign': entity.campaign.id}) }}">Back to the list</a>
+        </div>
+    </div>
+
+{% endblock %}

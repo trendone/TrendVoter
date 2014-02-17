@@ -1,0 +1,15 @@
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% form_theme form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content -%}
+    <h1>CampaignItem creation</h1>
+
+    {{ form(form) }}
+
+    <br />
+
+    <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_index', {'campaign': entity.campaign.id}) }}">
+        Back to the list
+    </a>
+{% endblock %}

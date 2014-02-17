@@ -1,0 +1,9 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        campaignItem_image:
+            upload_destination: "%kernel.root_dir%/Resources/assets/campaign_item"
+            namer: vich_uploader.namer_uniqid
+            delete_on_remove: true
+            delete_on_update: true
+            inject_on_load: true

@@ -1,0 +1,11 @@
+{% extends 'TrendOneTrendVoterBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ campaign.title }}{% endblock %}
+
+{% block topnavbar_brand %}
+    <a class="navbar-brand" href="{{ path('trendone_trendvoter_frontend_campaign_show', {'campaign': campaign.slug}) }}">TrendVoter</a>
+{% endblock %}
+
+{% block topnavbar_menu %}
+    <p class="navbar-text navbar-right"><span class="small text-muted">{{ app.session.get('identifier') }}</span></p>
+{% endblock %}

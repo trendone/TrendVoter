@@ -1,0 +1,33 @@
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% block content -%}
+    <h1>CampaignItem list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.image }}</td>
+                <td>{{ entity.description }}</td>
+                <td>
+                    <div class="btn-group btn-group-xs">
+                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_show', { 'id': entity.id, 'campaign': entity.campaign.id }) }}">show</a>
+                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_edit', { 'id': entity.id, 'campaign': entity.campaign.id }) }}">edit</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_new', {'campaign': campaign.id}) }}">
+        Create a new campaign item
+    </a>
+{% endblock %}
