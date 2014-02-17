@@ -24,7 +24,7 @@ set :app_path,      "app"
 set :writable_dirs,       [app_path + "/cache", app_path + "/logs", app_path + "/Resources/assets", web_path + "/media"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
-set :use_set_permissions, true
+set :use_set_permissions, false
 
 set :repository,  "."
 set :deploy_via,  :capifony_copy_local
@@ -36,7 +36,7 @@ set :model_manager, "doctrine"
 # Or: `propel`
 
 set :shared_files,      ["app/config/parameters.yml"]
-set :shared_children,   [app_path + "/logs", app_path + "/Resources/assets", web_path + "/media"]
+set :shared_children,   [app_path + "/cache", app_path + "/logs", app_path + "/Resources/assets", web_path + "/media"]
 
 set :use_composer,      true
 set :use_composer_tmp,  true
