@@ -62,7 +62,7 @@ class CampaignItemController extends Controller
 
             $this->getRequest()->getSession()->getFlashBag()->add('notice', 'Campaign item was successfully created.');
 
-            return $this->redirect($this->generateUrl('trendone_trendvoter_admin_campaignitem_show', array('id' => $entity->getId(), 'campaign' => $campaign->getId())));
+            return $this->redirect($this->generateUrl('trendone_trendvoter_admin_campaignitem_edit', array('id' => $entity->getId(), 'campaign' => $campaign->getId())));
         }
 
         $this->getRequest()->getSession()->getFlashBag()->add('error', 'Campaign item was not created.');
