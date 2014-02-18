@@ -66,7 +66,8 @@
                     <tr>
                         <th>Answer X</th>
                         {% for a in 0..6 %}
-                            <td>{{ item.countAnswersByX(a) }}</td>
+                            {% set amount = item.countAnswersByX(a) %}
+                            <td class="{{ amount > 0 ? 'info' }}">{{ amount }}</td>
                         {% endfor %}
                         <td>{{ item.averageAnswersX()|number_format(1) }}</td>
                         {% set mediansX = item.medianAnswersX() %}
@@ -75,7 +76,8 @@
                     <tr>
                         <th>Answer Y</th>
                         {% for a in 0..6 %}
-                            <td>{{ item.countAnswersByY(a) }}</td>
+                            {% set amount = item.countAnswersByY(a) %}
+                            <td class="{{ amount > 0 ? 'info' }}">{{ amount }}</td>
                         {% endfor %}
                         <td>{{ item.averageAnswersY()|number_format(1) }}</td>
                         {% set mediansY = item.medianAnswersY() %}
