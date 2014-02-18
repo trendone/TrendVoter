@@ -342,11 +342,15 @@ class CampaignItem
             $answers[] = $answer->getAnswerX();
         }
 
-        sort($answers);
-        $medians['lower'] = $answers[ceil(count($answers)/2)-1];
+        $offset = ceil(count($answers)/2)-1;
 
-        rsort($answers);
-        $medians['upper'] = $answers[ceil(count($answers)/2)-1];
+        if ($offset >= 0) {
+            sort($answers);
+            $medians['lower'] = $answers[$offset];
+
+            rsort($answers);
+            $medians['upper'] = $answers[$offset];
+        }
 
         return $medians;
     }
@@ -397,11 +401,15 @@ class CampaignItem
             $answers[] = $answer->getAnswerY();
         }
 
-        sort($answers);
-        $medians['lower'] = $answers[ceil(count($answers)/2)-1];
+            $offset = ceil(count($answers)/2)-1;
 
-        rsort($answers);
-        $medians['upper'] = $answers[ceil(count($answers)/2)-1];
+        if ($offset >= 0) {
+            sort($answers);
+            $medians['lower'] = $answers[$offset];
+
+            rsort($answers);
+            $medians['upper'] = $answers[$offset];
+        }
 
         return $medians;
     }
