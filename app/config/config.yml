@@ -34,6 +34,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'ToaLayoutBundle:bootstrap3:form.html.twig'
 
 # Assetic Configuration
 assetic:
