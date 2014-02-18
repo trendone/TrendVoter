@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new Ornicar\ApcBundle\OrnicarApcBundle(),
 
             new TrendOne\Bundle\TrendVoterBundle\TrendOneTrendVoterBundle(),
         );

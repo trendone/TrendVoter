@@ -24,7 +24,8 @@
         "stof/doctrine-extensions-bundle": "*",
         "white-october/pagerfanta-bundle": "*",
         "vich/uploader-bundle": "*",
-        "liip/imagine-bundle": "*"
+        "liip/imagine-bundle": "*",
+        "ornicar/apc-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -13,3 +13,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    ornicar_apc_host:       localhost
+    ornicar_apc_webdir:     "%kernel.root_dir%/../web"
+    ornicar_apc_mode:       curl

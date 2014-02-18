@@ -5,6 +5,7 @@ imports:
     - { resource: imports/twig.yml }
     - { resource: imports/vich.yml }
     - { resource: imports/liip.yml }
+    - { resource: imports/ornicar.yml }
 
 framework:
     #esi:             ~
