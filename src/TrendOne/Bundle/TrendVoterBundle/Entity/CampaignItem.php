@@ -327,7 +327,7 @@ class CampaignItem
             $counter++;
         }
 
-        return $amount / $counter;
+        return $counter > 0 ? $amount / $counter : 0;
     }
 
     /**
@@ -382,7 +382,7 @@ class CampaignItem
             $counter++;
         }
 
-        return $amount / $counter;
+        return $counter > 0 ? $amount / $counter : 0;
     }
 
     /**
