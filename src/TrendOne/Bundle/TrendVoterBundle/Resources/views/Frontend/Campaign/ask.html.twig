@@ -5,7 +5,7 @@
 {% block content -%}
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h1 class="text-center">{{ campaign.title }} <small>{{ campaign.items.indexOf(campaignItem)+1 }}/{{ campaign.items.count }}</small></h1>
+            <h1 class="text-center">{{ campaign.title }} <small>{{ campaign.items.indexOf(campaignItem)+1 }}/{{ campaign.items|length }}</small></h1>
         </div>
 
         <div class="panel-body">
