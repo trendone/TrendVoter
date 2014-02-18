@@ -50,19 +50,12 @@ class CampaignController extends Controller
                 )
             );
 
-        // do not vote again
-        if ($entity) {
-            if ($campaign->getItems()->last() === $campaignItem) {
-                return $this->redirect($this->generateUrl('trendone_trendvoter_frontend_campaign_finish', array('campaign' => $campaign->getSlug())));
-            } else {
-                return $this->redirect($this->generateUrl('trendone_trendvoter_frontend_campaign_ask', array('campaign' => $campaign->getSlug(), 'step' => $step+1)));
-            }
+        if (!$entity) {
+            $entity = new CampaignItemAnswer();
+            $entity
+                ->setCampaignItem($campaignItem)
+                ->setUser($user);
         }
-
-        $entity = new CampaignItemAnswer();
-        $entity
-            ->setCampaignItem($campaignItem)
-            ->setUser($user);
 
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
