@@ -138,6 +138,28 @@ class CampaignController extends Controller
     }
 
     /**
+     * @param Campaign $campaign
+     *
+     * @Route("/{id}/answers/clear")
+     * @Method("GET")
+     * @Template()
+     */
+    public function clearAnswersAction(Campaign $entity)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($entity->getItems() as $item) {
+            foreach ($item->getAnswers() as $answer) {
+                $item->removeAnswer($answer);
+            }
+        }
+
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('trendone_trendvoter_admin_campaign_edit', array('id' => $entity->getId())));
+    }
+
+    /**
      * Displays a form to edit an existing Campaign entity.
      *
      * @Route("/{id}/edit")

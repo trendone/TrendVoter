@@ -26,7 +26,12 @@
 {% endblock %}
 
 {% block campaignitems %}
-    <h1>CampaignItem list</h1>
+    <h1>
+        CampaignItem list
+        <a class="btn btn-danger" href="{{ path('trendone_trendvoter_admin_campaign_clearanswers', {'id': entity.id}) }}">
+            Clear all answers
+        </a>
+    </h1>
 
     <table class="table">
         <thead>
@@ -57,5 +62,6 @@
     <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_new', {'campaign': entity.id}) }}">
         Create a new campaign item
     </a>
+
 
 {% endblock %}

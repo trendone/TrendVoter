@@ -26,7 +26,8 @@
         <one-to-many 
             field="answers" 
             target-entity="TrendOne\Bundle\TrendVoterBundle\Entity\CampaignItemAnswer"
-            mapped-by="campaignItem">
+            mapped-by="campaignItem"
+            orphan-removal="true">
             <cascade>
                 <cascade-persist />
                 <cascade-remove />
