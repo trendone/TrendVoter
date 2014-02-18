@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th>Title</th>
-                <th>Description</th>
+                <th class="hidden-xs">Description</th>
                 <th>Items</th>
                 <th></th>
             </tr>
@@ -20,14 +20,12 @@
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.title }}</td>
-                <td>{{ entity.description|nl2br }}</td>
+                <td class="hidden-xs">{{ entity.description|nl2br }}</td>
                 <td>{{ entity.items|length }}</td>
                 <td>
-                    <div class="btn-group btn-group-xs">
-                        <a class="btn btn-primary" href="{{ path('trendone_trendvoter_frontend_campaign_show', {'campaign': entity.slug}) }}" target="_blank">live</a>
-                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_show', { 'id': entity.id }) }}">show</a>
-                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_edit', { 'id': entity.id }) }}">edit</a>
-                    </div>
+                        <a class="btn btn-primary" href="{{ path('trendone_trendvoter_frontend_campaign_show', {'campaign': entity.slug}) }}" target="_blank"><span class="glyphicon glyphicon-star hidden-md"></span><span class="hidden-xs hidden-sm"> live</span></a>
+                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-stats hidden-md"></span><span class="hidden-xs hidden-sm"> show</span></a>
+                        <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-pencil hidden-md"></span><span class="hidden-xs hidden-sm"> edit</span></a>
                 </td>
             </tr>
         {% endfor %}
