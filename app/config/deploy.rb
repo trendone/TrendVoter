@@ -21,7 +21,7 @@ set :use_sudo,      false
 set :user,          "trendone"
 set :app_path,      "app"
 
-set :writable_dirs,       [app_path + "/cache"]
+set :writable_dirs,       [app_path + "/cache", web_path + "/media"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true
@@ -36,7 +36,7 @@ set :model_manager, "doctrine"
 # Or: `propel`
 
 set :shared_files,      ["app/config/parameters.yml"]
-set :shared_children,   [app_path + "/logs", app_path + "/Resources/assets", web_path + "/media"]
+set :shared_children,   [app_path + "/logs", app_path + "/Resources/assets"]
 
 set :use_composer,      true
 set :use_composer_tmp,  true
