@@ -14,8 +14,30 @@ class CampaignRepository extends EntityRepository
 {
     /**
      * @param string $slug
+     *
+     * @return \TrendOne\Bundle\TrendVoterBundle\Entity\Campaign
+     * @return null
      */
-    public function findOneBySlug($slug) {
+    public function findOneBySlug($slug)
+    {
         return $this->findOneBy(array('slug' => $slug));
+    }
+
+    /**
+     * @param unknown $id
+     *
+     * @return \TrendOne\Bundle\TrendVoterBundle\Entity\Campaign
+     * @return null
+     */
+    public function findWithJoins($id)
+    {
+        return $this->createQueryBuilder('campaign')
+            ->addSelect('item', 'answer')
+            ->leftJoin('campaign.items', 'item')
+            ->leftJoin('item.answers', 'answer')
+            ->where('campaign = :campaign')
+            ->setParameter('campaign', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
