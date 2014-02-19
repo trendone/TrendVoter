@@ -1861,12 +1861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/toaotc/LayoutBundle.git",
-                "reference": "48968bd4f4f2dd7990693b1c68dc3144b403a023"
+                "reference": "033c068d0466429896d282d76cd0eb1a9d681bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toaotc/LayoutBundle/zipball/48968bd4f4f2dd7990693b1c68dc3144b403a023",
-                "reference": "48968bd4f4f2dd7990693b1c68dc3144b403a023",
+                "url": "https://api.github.com/repos/toaotc/LayoutBundle/zipball/033c068d0466429896d282d76cd0eb1a9d681bf2",
+                "reference": "033c068d0466429896d282d76cd0eb1a9d681bf2",
                 "shasum": ""
             },
             "require": {
@@ -1896,7 +1896,7 @@
                 "bundle",
                 "symfony"
             ],
-            "time": "2014-02-14 19:18:21"
+            "time": "2014-02-19 08:52:37"
         },
         {
             "name": "twig/extensions",
