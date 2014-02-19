@@ -88,14 +88,15 @@ class CampaignController extends Controller
     */
     private function createCreateForm(CampaignItemAnswer $entity)
     {
-        $campaign = $entity->getCampaignItem()->getCampaign();
+        $campaignItem = $entity->getCampaignItem();
+        $campaign = $campaignItem->getCampaign();
 
         $form = $this->createForm(new CampaignItemAnswerType(), $entity, array(
             'action' => $this->generateUrl('trendone_trendvoter_frontend_campaign_answer', array('campaign' => $campaign->getSlug(), 'step' => $campaign->getItems()->indexOf($entity->getCampaignItem()))),
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Next'));
+        $form->add('submit', 'submit', array('label' => $campaign->getItems()->last() === $campaignItem ? 'Finish' : 'Next'));
 
         return $form;
     }
