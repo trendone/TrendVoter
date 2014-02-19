@@ -1,1 +1,24 @@
-{% extends 'ToaLayoutBundle:bootstrap3:login.html.twig' %}
+{% extends 'TrendOneTrendVoterBundle:Admin:layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2" style="margin-top:15%;">
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-sm-6">{{ form_row(form._username) }}</div>
+                    <div class="col-sm-6">{{ form_row(form._password) }}</div>
+                </div>
+
+                <div class="has-error">{{ form_errors(form) }}</div>
+
+                {{ form_row(form._remember_me) }}
+
+                <div class="text-center">
+                {{ form_row(form.login, {'attr': {'class': 'btn-primary btn-lg'}}) }}
+                </div>
+
+                {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
