@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="trend_one_trend_voter.session_identifier_listener" class="%trend_one_trend_voter.session_identifier_listener.class%" scope="request">
+        <service id="trend_one_trend_voter.session_identifier_listener" class="%trend_one_trend_voter.session_identifier_listener.class%">
             <tag name="kernel.event_subscriber" />
             <argument type="service" id="security.secure_random" />
         </service>
