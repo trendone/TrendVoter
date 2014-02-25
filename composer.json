@@ -20,7 +20,7 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "toa/bower-bundle": "@dev",
-        "toa/layout-bundle": "@dev",
+        "toa/layout-bundle": "*",
         "stof/doctrine-extensions-bundle": "*",
         "white-october/pagerfanta-bundle": "*",
         "vich/uploader-bundle": "*",

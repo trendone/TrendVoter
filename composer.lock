@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "14828cb3d058319dd3b9b8bd7eae0a89",
+    "hash": "96a01c13d5ac14b9810fed5515403d0b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -931,17 +931,17 @@
         },
         {
             "name": "liip/imagine-bundle",
-            "version": "v0.20.1",
+            "version": "v0.20.2",
             "target-dir": "Liip/ImagineBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "07587dd937ece47e9ad6d3ea03aea1676e13a336"
+                "reference": "ac6794887fb8e6bcdd1867260760834a91fd8140"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/07587dd937ece47e9ad6d3ea03aea1676e13a336",
-                "reference": "07587dd937ece47e9ad6d3ea03aea1676e13a336",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/ac6794887fb8e6bcdd1867260760834a91fd8140",
+                "reference": "ac6794887fb8e6bcdd1867260760834a91fd8140",
                 "shasum": ""
             },
             "require": {
@@ -982,7 +982,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2014-02-10 06:53:52"
+            "time": "2014-02-20 13:36:21"
         },
         {
             "name": "monolog/monolog",
@@ -1578,17 +1578,17 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408"
+                "reference": "71ad844ac29401f86619f9d643393265451e858b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/29a17a347dfc41aed34ce9b72cceaf375635c408",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/71ad844ac29401f86619f9d643393265451e858b",
+                "reference": "71ad844ac29401f86619f9d643393265451e858b",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1621,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1634,7 +1636,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-01-19 13:23:40"
+            "time": "2014-02-19 14:49:26"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -1856,17 +1858,17 @@
         },
         {
             "name": "toa/layout-bundle",
-            "version": "dev-master",
+            "version": "v0.0.1",
             "target-dir": "Toa/Bundle/LayoutBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/toaotc/LayoutBundle.git",
-                "reference": "033c068d0466429896d282d76cd0eb1a9d681bf2"
+                "reference": "9b5387cae19fd6a1b6091788fe3ad0f979839e81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toaotc/LayoutBundle/zipball/033c068d0466429896d282d76cd0eb1a9d681bf2",
-                "reference": "033c068d0466429896d282d76cd0eb1a9d681bf2",
+                "url": "https://api.github.com/repos/toaotc/LayoutBundle/zipball/9b5387cae19fd6a1b6091788fe3ad0f979839e81",
+                "reference": "9b5387cae19fd6a1b6091788fe3ad0f979839e81",
                 "shasum": ""
             },
             "require": {
@@ -1896,7 +1898,7 @@
                 "bundle",
                 "symfony"
             ],
-            "time": "2014-02-19 08:52:37"
+            "time": "2014-02-19 22:18:14"
         },
         {
             "name": "twig/extensions",
@@ -2123,8 +2125,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "toa/bower-bundle": 20,
-        "toa/layout-bundle": 20
+        "toa/bower-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
