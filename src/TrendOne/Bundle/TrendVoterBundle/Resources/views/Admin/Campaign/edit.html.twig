@@ -15,20 +15,44 @@
 
     <br />
 
-    {{ form(delete_form) }}
+    <button class="btn btn-danger" data-toggle="modal" data-target="#campaign_delete_dialog">
+        Delete
+    </button>
 
-    <br />
+    {% set content %}
+        <p>Do you really want to delete "{{ entity.title }}"?</p>
+        {{ form(delete_form) }}
+    {% endset %}
+    {{ _self.simple_dialog('campaign_delete_dialog', 'Delete Campaign' , content) }}
+
+    <br /><br />
 
     <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_index') }}">Back to the list</a>
 {% endblock %}
 
 {% block campaignitems %}
+    {% set answerCount = 0 %}
+    {% for a in entity.items %}
+        {% set answerCount = answerCount + a.answers|length %}
+    {% endfor %}
+
     <h1>
         CampaignItem list
-        <a class="btn btn-danger" href="{{ path('trendone_trendvoter_admin_campaign_clearanswers', {'id': entity.id}) }}">
-            Clear all answers
-        </a>
+
+        {% if answerCount > 0 %}
+        <button class="btn btn-danger" data-toggle="modal" data-target="#campaign_clearanswers_dialog">
+            Clear answers
+        </button>
+        {% endif %}
     </h1>
+
+    {% if answerCount > 0 %}
+        {% set content %}
+            <p>Do you really want to delete all <strong>{{ answerCount }} answers</strong> in "{{ entity.title }}"?</p>
+            <a class="btn btn-danger" href="{{ path('trendone_trendvoter_admin_campaign_clearanswers', {'id': entity.id}) }}">Clear answers</a>
+        {% endset %}
+        {{ _self.simple_dialog('campaign_clearanswers_dialog', 'Clear answers', content) }}
+    {% endif %}
 
     <table class="table">
         <thead>
@@ -59,6 +83,23 @@
     <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaignitem_new', {'campaign': entity.id}) }}">
         Create a new campaign item
     </a>
-
-
 {% endblock %}
+
+{% macro simple_dialog(id, title, content) %}
+    <div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}_label" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="{{ id }}_label">{{ title }}</h4>
+                </div>
+                <div class="modal-body text-center">
+                    {{ content }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
