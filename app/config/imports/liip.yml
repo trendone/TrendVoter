@@ -4,10 +4,10 @@ liip_imagine:
         campaignitem_list:
             filters:
                 thumbnail:
-                  size: [32, 32]
-                  mode: inset
+                    size: [32, 32]
+                    mode: inset
         campaignitem_edit:
             quality: 75
             filters:
                 relative_resize:
-                  widen: 760
+                    widen: 760
