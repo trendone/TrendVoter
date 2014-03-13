@@ -6,6 +6,7 @@ imports:
     - { resource: imports/vich.yml }
     - { resource: imports/liip.yml }
     - { resource: imports/ornicar.yml }
+    - { resource: imports/white_october.yml }
 
 framework:
     #esi:             ~

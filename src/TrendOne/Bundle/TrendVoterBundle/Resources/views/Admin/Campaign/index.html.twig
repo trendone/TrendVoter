@@ -4,7 +4,7 @@
     <h1>Campaign list</h1>
 
     <div class="text-center">
-        {{ pagerfanta(pager, 'twitter_bootstrap3_translated') }}
+        {{ pagerfanta(pager) }}
     </div>
 
     <table class="table table-condensed">
@@ -33,7 +33,7 @@
     </table>
 
     <div class="text-center">
-        {{ pagerfanta(pager, 'twitter_bootstrap3_translated') }}
+        {{ pagerfanta(pager) }}
     </div>
 
     <a class="btn btn-default" href="{{ path('trendone_trendvoter_admin_campaign_new') }}">
