@@ -4,8 +4,9 @@
 
 {% block stylesheets %}
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    {{ parent() }}
+
     {% stylesheets
-        'bundles/trendonetrendvoter/less/bootstrap.less'
         'bundles/trendonetrendvoter/less/layout.less'
     %}
         <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
