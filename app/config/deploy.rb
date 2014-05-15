@@ -9,12 +9,12 @@ task :production do
 end
 
 
-#task :testing do
-#  set :domain,        "staging.trendone.com"
-#  set :deploy_to,     "/var/www/trendexplorer.com/testing"
-#  role :web,        domain                         # Your HTTP server, Apache/etc
-#  role :app,        domain, :primary => true       # This may be the same as your `Web` server
-#end
+task :demo do
+  set :domain,        "demo.vote.trendone.com"
+  set :deploy_to,     "/var/www/trendone.com/demo.vote"
+  role :web,        domain                         # Your HTTP server, Apache/etc
+  role :app,        domain, :primary => true       # This may be the same as your `Web` server
+end
 
 
 set :use_sudo,      false
