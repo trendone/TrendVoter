@@ -7,7 +7,7 @@
         <property name="title">
             <constraint name="NotBlank" />
             <constraint name="Regex">
-                <option name="value">/^admin$/i</option>
+                <option name="pattern">/^admin$/i</option>
                 <option name="match">false</option>
             </constraint>
         </property>
