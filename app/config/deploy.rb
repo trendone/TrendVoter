@@ -21,7 +21,8 @@ set :use_sudo,      false
 set :user,          "trendone"
 set :app_path,      "app"
 
-set :writable_dirs,       [app_path + "/cache", web_path + "/media", app_path + "/Resources/assets"]
+#set :writable_dirs,       [app_path + "/cache", web_path + "/media", app_path + "/Resources/assets"]
+set :writable_dirs,       [app_path + "/cache", web_path + "/media"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true
